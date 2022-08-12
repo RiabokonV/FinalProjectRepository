@@ -15,7 +15,6 @@ public class QuestionsFormTests extends BaseTest {
         getNewsPage().clickCoronavirusButton();
         getNewsPage().clickYourCoronavirusStoryButton();
         getNewsPage().clickQuestionsButton();
-        getForm().fillForm(getQuestionsPage().getMap());
 //        getQuestionsPage().clickSubmitButton();
         getQuestionsPage().waitVisibilityOfElement(getQuestionsPage().getErrorQuestionMessage(), TIME_TO_WAIT);
         Assert.assertTrue(getQuestionsPage().getErrorQuestionMessage().isDisplayed());
@@ -31,7 +30,7 @@ public class QuestionsFormTests extends BaseTest {
         getNewsPage().clickYourCoronavirusStoryButton();
         getNewsPage().clickQuestionsButton();
         getQuestionsPage().waitForPageLoad(TIME_TO_WAIT);
-        getForm().fillForm(getQuestionsPage().getMap());
+//        getForm().fillForm(getQuestionsPage().getMap());
         getQuestionsPage().waitVisibilityOfElement(getQuestionsPage().getErrorNameMessage(), TIME_TO_WAIT);
         Assert.assertTrue(getQuestionsPage().getErrorNameMessage().isDisplayed());
     }
@@ -46,7 +45,7 @@ public class QuestionsFormTests extends BaseTest {
         getNewsPage().clickYourCoronavirusStoryButton();
         getNewsPage().clickQuestionsButton();
         getQuestionsPage().waitForPageLoad(TIME_TO_WAIT);
-        getForm().fillForm(getQuestionsPage().getMap());
+//        getForm().fillForm(getQuestionsPage().getMap());
         getQuestionsPage().waitVisibilityOfElement(getQuestionsPage().getErrorEmailMessage(), TIME_TO_WAIT);
         Assert.assertTrue(getQuestionsPage().getErrorEmailMessage().isDisplayed());
     }

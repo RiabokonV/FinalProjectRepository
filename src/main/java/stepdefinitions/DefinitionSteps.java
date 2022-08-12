@@ -1,11 +1,11 @@
 package stepdefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.messages.types.DataTable;
 import manager.PageFactoryManager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -15,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
@@ -127,10 +128,15 @@ public class DefinitionSteps {
         Assert.assertTrue(questionsPage.getErrorEmailMessage().isDisplayed());
     }
 
-    @And("User send incorrect values to form")
-    public void userSendIncorrectValuesToForm() {
-        questionsPage = pageFactoryManager.getQuestionsPage();
-        form = pageFactoryManager.getForm();
-        form.fillForm(questionsPage.getMap());
+    public WebElement getTextToForm (String text){
+        return driver.findElement(By.xpath("//input[@placeholder='" + text+ "']"));
+    }
+
+    @And("User incorrect filling form")
+    public void userIncorrectFillingForm(DataTable arg) {
+        for(Map.Entry entry: arg.asMap().entrySet()){
+            getTextToForm(String.valueOf(entry.getKey())).sendKeys(String.valueOf(entry.getValue()));
+        }
+
     }
 }

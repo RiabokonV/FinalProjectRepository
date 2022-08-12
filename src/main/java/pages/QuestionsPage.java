@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,18 +25,22 @@ public class QuestionsPage extends BasePage {
     @FindBy(xpath = "//div[@class='text-input--error']/div[@class='input-error-message']")
     private WebElement errorEmailMessage;
 
-    private final String formXpath = "//div[@class='embed-content-container']//*[@placeholder=";
+
+    public WebElement getTextToForm (String text){
+        return getDriver().findElement(By.xpath("//input[@placeholder='" + text+ "']"));
+    }
 
     private HashMap<String,String> map = new HashMap<>();
     {
-        map.put("'What questions would you like us to answer?'"," ");
-        map.put("'Name'", " ");
-        map.put("'Email address'", " ");
+        map.put("What questions would you like us to answer?"," ");
+        map.put("Name", "Aleg ");
+        map.put("Email address", " ");
     }
 
-    public String getFormXpath() {
-        return formXpath;
-    }
+//    public String getFormXpath() {
+//        return formXpath;
+//    }
+
     public HashMap<String, String> getMap() {
         return map;
     }

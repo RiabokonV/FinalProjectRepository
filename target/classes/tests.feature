@@ -32,6 +32,48 @@ Feature: BBCtests
       | homePage             | text                |
       | https://www.bbc.com/ | At The Edge of Asia |
 
+#  Scenario Outline: Check question error message
+#    Given User opens '<homePage>' page
+#    When User click on news button
+#    And User close signInMessage
+#    And User click on coronavirus button
+#    And User click on yourStories button
+#    And User click on question button
+#    And User send incorrect values to form
+#    Then User see question error message
+#
+#    Examples:
+#      | homePage             |
+#      | https://www.bbc.com/ |
+#
+#  Scenario Outline: Check name error message
+#    Given User opens '<homePage>' page
+#    When User click on news button
+#    And User close signInMessage
+#    And User click on coronavirus button
+#    And User click on yourStories button
+#    And User click on question button
+#    And User send incorrect values to form
+#    Then User see name error message
+#
+#    Examples:
+#      | homePage             |
+#      | https://www.bbc.com/ |
+#
+#  Scenario Outline: Check name error message
+#    Given User opens '<homePage>' page
+#    When User click on news button
+#    And User close signInMessage
+#    And User click on coronavirus button
+#    And User click on yourStories button
+#    And User click on question button
+#    And User send incorrect values to form
+#    Then User see email error message
+#
+#    Examples:
+#      | homePage             |
+#      | https://www.bbc.com/ |
+
   Scenario Outline: Check incorrect form fill
     Given User opens 'https://www.bbc.com/' page
     When User click on news button
